@@ -47,12 +47,18 @@ class DefaultLayout(scrollOrientation: StackLayoutManager.ScrollOrientation,
 
     private fun getFirstVisibleItemLeft(): Int {
         return when(mScrollOrientation) {
-            StackLayoutManager.ScrollOrientation.RIGHT_TO_LEFT -> mStartMargin - mScrollOffset % mWidth
+            StackLayoutManager.ScrollOrientation.RIGHT_TO_LEFT -> {
+                var offset = mScrollOffset % mWidth
+                if (offset < 0) offset += mWidth
+                mStartMargin - offset
+            }
             StackLayoutManager.ScrollOrientation.LEFT_TO_RIGHT -> {
                 return if (mScrollOffset % mWidth == 0) {
                     mStartMargin
                 } else {
-                    mStartMargin + (mWidth - mScrollOffset % mWidth)
+                    var offset = mScrollOffset % mWidth
+                    if (offset < 0) offset += mWidth
+                    mStartMargin + (mWidth - offset)
                 }
             }
             else -> mWidthSpace / 2
@@ -61,12 +67,18 @@ class DefaultLayout(scrollOrientation: StackLayoutManager.ScrollOrientation,
 
     private fun getFirstVisibleItemTop(): Int {
         return when(mScrollOrientation) {
-            StackLayoutManager.ScrollOrientation.BOTTOM_TO_TOP -> mStartMargin - mScrollOffset % mHeight
+            StackLayoutManager.ScrollOrientation.BOTTOM_TO_TOP -> {
+                var offset = mScrollOffset % mHeight
+                if (offset < 0) offset += mHeight
+                mStartMargin - offset
+            }
             StackLayoutManager.ScrollOrientation.TOP_TO_BOTTOM -> {
                 return if (mScrollOffset % mHeight == 0) {
                     mStartMargin
                 } else {
-                    mStartMargin + (mHeight - mScrollOffset % mHeight)
+                    var offset = mScrollOffset % mHeight
+                    if (offset < 0) offset += mHeight
+                    mStartMargin + (mHeight - offset)
                 }
             }
             else ->  mHeightSpace / 2

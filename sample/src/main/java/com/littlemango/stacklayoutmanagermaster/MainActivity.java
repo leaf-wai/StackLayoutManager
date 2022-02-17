@@ -1,11 +1,11 @@
 package com.littlemango.stacklayoutmanagermaster;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.littlemango.stacklayoutmanager.StackLayoutManager;
-import com.littlemango.stacklayoutmanager.StackLayoutManager.ScrollOrientation;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -66,22 +66,22 @@ public class MainActivity extends AppCompatActivity {
                                         resetRandom();
                                         break;
                                     case 2:
-                                        mStackLayoutManager = new StackLayoutManager(ScrollOrientation.LEFT_TO_RIGHT);
+                                        mStackLayoutManager = new StackLayoutManager(StackLayoutManager.ScrollOrientation.LEFT_TO_RIGHT);
                                         mRecyclerView.setLayoutManager(mStackLayoutManager);
                                         getSupportActionBar().setTitle("Picture 0");
                                         break;
                                     case 3:
-                                        mStackLayoutManager = new StackLayoutManager(ScrollOrientation.RIGHT_TO_LEFT);
+                                        mStackLayoutManager = new StackLayoutManager(StackLayoutManager.ScrollOrientation.RIGHT_TO_LEFT);
                                         mRecyclerView.setLayoutManager(mStackLayoutManager);
                                         getSupportActionBar().setTitle("Picture 0");
                                         break;
                                     case 4:
-                                        mStackLayoutManager = new StackLayoutManager(ScrollOrientation.TOP_TO_BOTTOM);
+                                        mStackLayoutManager = new StackLayoutManager(StackLayoutManager.ScrollOrientation.TOP_TO_BOTTOM);
                                         mRecyclerView.setLayoutManager(mStackLayoutManager);
                                         getSupportActionBar().setTitle("Picture 0");
                                         break;
                                     case 5:
-                                        mStackLayoutManager = new StackLayoutManager(ScrollOrientation.BOTTOM_TO_TOP);
+                                        mStackLayoutManager = new StackLayoutManager(StackLayoutManager.ScrollOrientation.BOTTOM_TO_TOP);
                                         mRecyclerView.setLayoutManager(mStackLayoutManager);
                                         getSupportActionBar().setTitle("Picture 0");
                                         break;
